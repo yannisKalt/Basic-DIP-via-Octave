@@ -1,0 +1,3 @@
+-- BasicFilters folder contains octave functions for all elementary frequency domain filters found in any DIP textbook -- 
+
+This type of filtering is applied directly on the frequency domain of the input image.
