@@ -1,3 +1,9 @@
 -- BasicFilters folder contains octave functions for all elementary frequency domain filters found in any DIP textbook -- 
 
-This type of filtering is applied directly on the frequency domain of the input image.
+* This type of filtering is applied directly on the frequency domain of the input image!!
+
+* Directional Filter functions are also provided.
+
+* Running in matlab will cause errors due to matrix indexing..
+  e.g: size(A)(1) is allowed in octave but not in matlab.
+  The basic algorithm is the same though.
