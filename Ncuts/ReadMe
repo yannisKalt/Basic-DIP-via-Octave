@@ -1,0 +1,19 @@
+-- Ncuts Image Clustering: Assign a label to each pixel -- 
+-- Written & tested On Matlab (due to kmeans buildin usage) --
+
+
+(0) Assume an M x N x C image (M rows, N columns, C chromatic channels).
+    Each pixel represents a vector in R^C. The samples are reshaped from an M x N x C array to an (M * N) x C format.
+    
+
+(1) Image2Graph --> Provides an affinity matrix (M*N x M*N) of the samples. 
+
+
+---------------------------------------   Spectral Clustering  ---------------------------------------
+(2) mySpectralClustering --> performs spectral clustering(input1: anAffinityMatrix, input2: number of desired clusters)
+
+(3) calculateNcut ---> finds ncut metric
+
+(4) recursiveNcuts --> Performs recursive Ncuts algorithm (you must provide thresholds)
+
+(5) adaptiveRecursiveNcuts --> My variation of recursiveNcuts (no need to provide thresholds).
