@@ -1,0 +1,18 @@
+-- Convolutional Mask Filtering: Both Via spatial convolution && DFT Equivalent -- 
+
+(1) myConvSpat.m
+    Provides an implementation of the 2-d convolution between two 2-D finite extend sequences.
+    Offered only for the sake of it.. Pretty slow.
+
+(2)
+  2-D convolution via FFT.
+  
+(3) myFilter.m
+  Performs the 2-d convolution of it's inputs
+  
+(4)myMotBlur
+  Motion Blurring Filtering.
+  Performs Motion Blurring characterized by (mot_vec, exposure_time) to the input image.
+  Better results than buildin octave function
+  
+  
