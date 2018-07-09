@@ -1,19 +1,32 @@
--- Ncuts Image Clustering: Assign a label to each pixel -- 
--- Written & tested On Matlab (due to kmeans buildin usage) --
+% Written & tested On Matlab (due to kmeans buildin usage) 
+% In case one needs to run on octave, an external package with kmeans is required.
 
+*** Ncuts folder includes Spectral-Clustering & Normalized Cuts Clustering ***
 
-(0) Assume an M x N x C image (M rows, N columns, C chromatic channels).
-    Each pixel represents a vector in R^C. The samples are reshaped from an M x N x C array to an (M * N) x C format.
+Clustering Basics:
+* Assume an M x N x C image (M rows, N columns, C chromatic channels).
+  Each pixel represents a vector/sample in R^C. The samples are reshaped from an M x N x C array to an (M * N) x C format.
     
+----- Functions & Files -----
 
-(1) Image2Graph --> Provides an affinity matrix (M*N x M*N) of the samples. 
+(A) Spectral Clustering
 
+    (A.1) Image2Graph --> Provides an affinity matrix (M*N) x (M*N) of the pixel-samples. 
+            (input: the desired image)
+    
+    (A.2) mySpectralClustering --> Performs Spectral Clustering 
+            (input1: anAffinityMatrix, input2: number of desired clusters)
 
----------------------------------------   Spectral Clustering  ---------------------------------------
-(2) mySpectralClustering --> performs spectral clustering(input1: anAffinityMatrix, input2: number of desired clusters)
+(B) Normalized Cuts Clustering
 
-(3) calculateNcut ---> finds ncut metric
-
-(4) recursiveNcuts --> Performs recursive Ncuts algorithm (you must provide thresholds)
-
-(5) adaptiveRecursiveNcuts --> My variation of recursiveNcuts (no need to provide thresholds).
+    (B.1) calculateNcut --> Calculates Ncuts metric. Used as a criterion to further cut the base-parent graph
+                            into two derived-children graphs.
+            (input1: the affinity matrix of the image, input2: the cluster labels of the image samples)
+            
+    (B.2) recursiveNcuts --> Performs recursive Ncuts algorithm (you must provide thresholds for max ncut value,
+                                                                 min number of node-graphs)
+            (input: the affinity matrix of the image)
+            
+    (B.3) adaptiveRecursiveNcuts --> My variation of recursiveNcuts (no need to provide thresholds).
+                                     The algorithm uses a greedy approach to the n-cuts algorithm.
+                                     ncuts threshold in (B.2) is adapted based on the father graph ncuts value.
