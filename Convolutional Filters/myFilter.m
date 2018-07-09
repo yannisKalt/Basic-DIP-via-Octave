@@ -22,16 +22,16 @@ function imOut = myFilter(imX, aMask)
 			error('Invalid args to myFilter.');
 		case 1
 			imOut = zeros(dim_imX + dim_aMask - 1);
-			imOut = myConvSpat(imX, aMask);
+			imOut = myConvFreq(imX, aMask);
 		case 2
 			imOut = zeros([dim_aMask + dim_imX(1:2) - 1, dim_imX(3)]);
 			for k = 1:dim_imX(3)
-				imOut(:, :, k) = myConvSpat(imX(:, :, k), aMask);
+				imOut(:, :, k) = myConvFreq(imX(:, :, k), aMask);
 			end
 		case 3
 			imOut = zeros([dim_imX(1:2) + dim_aMask(1:2) - 1, dim_imX(3)]);
 			for k = 1:dim_aMask(3)
-				imOut(:, :, k) = myConvSpat(imX(:, :, k), aMask(:, :, k));
+				imOut(:, :, k) = myConvFreq(imX(:, :, k), aMask(:, :, k));
 			end
 	endswitch
 
